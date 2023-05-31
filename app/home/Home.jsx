@@ -46,6 +46,10 @@ export default function Home(){
                         <Text style={{fontSize: 20, fontWeight: 'bold'}}>€45.00/h</Text>
                     </View>
                 </View>
+
+                <View style={stile.centerCards.main}>
+                    
+                </View>
             </View>
             }
 
@@ -95,6 +99,17 @@ const st = StyleSheet.create({
             },
             dati:{
                 flexDirection: 'row',
+            }
+        },
+
+        centerCards: {
+            main: {
+                width: '100%', 
+                flexDirection: 'row', 
+                justifyContent: 'space-between'
+            },
+            card1: {
+                
             }
         }
 
