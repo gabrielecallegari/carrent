@@ -7,7 +7,8 @@ const data = [
         prezzo: 45,
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/500x.png'),
         id: 1,
-        carburante: 'benzina'
+        carburante: 'benzina',
+        features: ['Aria condizionata', 'Bluetooth']
     },
     {
         titolo: 'Rav4',
@@ -17,7 +18,8 @@ const data = [
         prezzo: 70,
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/rav4.png'),
         id: 2,
-        carburante: 'diesel'
+        carburante: 'diesel',
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
     },
 
     {
@@ -28,7 +30,8 @@ const data = [
         prezzo: 200,
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/stelvio.png'),
         id: 3,
-        carburante: 'benzina'
+        carburante: 'benzina',
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth', 'Modalità sport']
     },
 
     {
@@ -39,7 +42,8 @@ const data = [
         prezzo: 70,
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/giulia.png'),
         id: 4,
-        carburante: 'diesel'
+        carburante: 'diesel',
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
     },
 
     {
@@ -50,7 +54,8 @@ const data = [
         prezzo: 75,
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/x3.png'),
         id: 5,
-        carburante: 'benzina'
+        carburante: 'benzina',
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
     },
 
     {
@@ -61,7 +66,8 @@ const data = [
         prezzo: 55,
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/q3.png'),
         id: 6,
-        carburante: 'benzina'
+        carburante: 'benzina',
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Bluetooth']
     },
 
     {
@@ -72,7 +78,8 @@ const data = [
         prezzo: 50,
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/gla.png'),
         id: 7,
-        carburante: 'diesel'
+        carburante: 'diesel',
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
     },
 
     {
@@ -83,7 +90,8 @@ const data = [
         prezzo: 70,
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/glc.png'),
         id: 8,
-        carburante: 'diesel'
+        carburante: 'diesel',
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
     }
 ]
 
