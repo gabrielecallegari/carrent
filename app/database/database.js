@@ -8,7 +8,8 @@ const data = [
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/500x.png'),
         id: 1,
         carburante: 'benzina',
-        features: ['Aria condizionata', 'Bluetooth']
+        features: ['Aria condizionata', 'Bluetooth'],
+        occupata: false
     },
     {
         titolo: 'Rav4',
@@ -19,7 +20,8 @@ const data = [
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/rav4.png'),
         id: 2,
         carburante: 'diesel',
-        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth'],
+        occupata: false
     },
 
     {
@@ -31,7 +33,8 @@ const data = [
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/stelvio.png'),
         id: 3,
         carburante: 'benzina',
-        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth', 'Modalità sport']
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth', 'Modalità sport'],
+        occupata: false
     },
 
     {
@@ -43,7 +46,8 @@ const data = [
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/giulia.png'),
         id: 4,
         carburante: 'diesel',
-        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth'],
+        occupata: false
     },
 
     {
@@ -55,7 +59,8 @@ const data = [
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/x3.png'),
         id: 5,
         carburante: 'benzina',
-        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth'],
+        occupata: false
     },
 
     {
@@ -67,7 +72,8 @@ const data = [
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/q3.png'),
         id: 6,
         carburante: 'benzina',
-        features: ['Sedili riscaldati', 'Aria condizionata', 'Bluetooth']
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Bluetooth'],
+        occupata: false
     },
 
     {
@@ -79,7 +85,8 @@ const data = [
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/gla.png'),
         id: 7,
         carburante: 'diesel',
-        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth'],
+        occupata: false
     },
 
     {
@@ -91,7 +98,8 @@ const data = [
         image: require('/Users/gabriele/Desktop/react-native/carrent/assets/glc.png'),
         id: 8,
         carburante: 'diesel',
-        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth']
+        features: ['Sedili riscaldati', 'Aria condizionata', 'Sedili ventilati', 'Bluetooth', 'Sedili massaggianti',],
+        occupata: false
     }
 ]
 

@@ -1,11 +1,13 @@
-import React, { useEffect, useState }  from "react";
-import { Text, View, StyleSheet, Platform, Image, Pressable, ScrollView } from "react-native";
+import React, { useEffect, useRef, useState }  from "react";
+import { Text, View, StyleSheet, Platform, Image, Pressable, ScrollView, Animated } from "react-native";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Firstpage from '../firstpage/Firstpage'
 import data from "../database/database";
 import SlidingUpPanel from 'rn-sliding-up-panel';
+import Prenotato from "../Prenotato/Prenotato";
+import { useFocusEffect, useIsFocused } from "@react-navigation/native";
 
-export default function Home(){
+export default function Home({navigation}){
 
     const stile = Platform.OS === 'ios' ? st.ios : st.android
 
@@ -13,9 +15,41 @@ export default function Home(){
 
     const [ nuovo, setNuovo] = useState(false)
 
-    const [ car , setCar ] = useState(-1)
+    const [ car , setCar ] = useState(prima)
+
+    const [prenotato , setPrenotato ] = useState(stile.prenotato)
 
     const [altri,setAltri] = useState(data.filter(elemento => elemento.id !== prima.id))
+
+    const fadeAnim = useRef(new Animated.Value(0)).current
+
+    const visible = () => {
+        setPrenotato(stile.prenotato2)
+        this._panel.hide()
+        const index = altri.indexOf(car)
+        let arr = altri
+        let oggetto = car
+        oggetto.occupata = true
+        arr[index] = oggetto
+        setAltri(arr)  
+        // Will change fadeAnim value to 1 in 5 seconds
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: true,
+        }).start();
+    };
+
+    const notVisible = () => {
+        
+        // Will change fadeAnim value to 0 in 3 seconds
+        Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 300,
+            useNativeDriver: true,
+        }).start(()=>{setPrenotato(stile.prenotato1)});
+        
+    };
 
     const getData = async () => {
         try {
@@ -29,15 +63,28 @@ export default function Home(){
         }
       }
 
+    useFocusEffect(()=>{
+        this._panel.hide()
+        //setAltri(data.filter(elemento => elemento.id !== prima.id && elemento.occupata === false))
+    })
+
+    
     useEffect(()=>{
         getData()
+        
     })
 
     function callback() {
         setNuovo(true)
+        notVisible()
+        setAltri(altri.filter(element => element.occupata === false))
     }
     return(
         <View style={{flex:1, backgroundColor: 'white'}}>
+            <Animated.View style={[ prenotato, {opacity: fadeAnim,}]}>
+                <Prenotato auto={car} callback={callback} />
+            </Animated.View>
+            
             {nuovo && 
             <View style={stile.main} >
                 <Pressable style={stile.topCard.card} onPress={()=>{
@@ -62,7 +109,7 @@ export default function Home(){
                         <Text style={stile.centerCards.card1.text} >{window.user === false? "Profilo" : "Login"}</Text>
                     </Pressable>
 
-                    <Pressable style={stile.centerCards.card2.main}>
+                    <Pressable style={stile.centerCards.card2.main} onPress={()=> navigation.navigate("Map")}>
                         <Image source={require("../../assets/maps.jpg")} style={stile.centerCards.card2.image}/>
                     </Pressable>
                 </View>
@@ -105,19 +152,42 @@ export default function Home(){
                 <Firstpage callback={callback}/>
             }
             <SlidingUpPanel ref={c => this._panel = c} showBackdrop={true} allowDragging={false} >
-                    <View style={stile.slideup1.main}>
-                        <View style={stile.slideup1.header}>
-                            <View>
-                                <Text style={stile.slideup1.text} >{car.marca} {car.titolo}</Text>
-                                <Text style={stile.slideup1.text2}>⛽️ {car.serbatoio}L</Text>
+                    <View style={{flex: 1}}>
+                        <View style={stile.slideup1.main}>
+                            <View style={stile.slideup1.header}>
+                                <View>
+                                    <Text style={stile.slideup1.text} >{car.marca} {car.titolo}</Text>
+                                    <Text style={stile.slideup1.text2}>⛽️ {car.serbatoio}L</Text>
+                                </View>
+                                <Pressable onPress={() => {this._panel.hide()} }> 
+                                    <Image source={require('../../assets/x.png')} style={stile.slideup1.image} />
+                                </Pressable>
                             </View>
-                            <Pressable onPress={() => this._panel.hide()} > 
-                                <Image source={require('../../assets/x.png')} style={stile.slideup1.image} />
-                            </Pressable>
-                        </View>
-                        <View style={stile.slideup2.main}>
-                            <Image style={stile.slideup2.image} source={car.image}/>
-                            <Text style={stile.slideup2.text}>Features</Text>
+                            <View style={stile.slideup2.main}>
+                                <Image style={stile.slideup2.image} source={car.image}/>
+                                <Text style={stile.slideup2.text}>Features</Text>
+                                <View>
+                                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginTop:10, marginLeft: -20, marginRight: -20}}>
+                                        {car.features.map(element => {
+                                            return (
+                                                <View style={stile.slideup2.card} key={element}>
+                                                    <Text style={stile.slideup2.cardtext} >{element}</Text>
+                                                </View>
+                                            )
+                                        })}
+                                    </ScrollView>
+                                </View>
+
+                                <Text style={stile.slideup2.textprezzo}>Prezzo: €{car.prezzo}/h</Text>
+
+                                <View style={{justifyContent: 'center',alignItems: 'center', position: 'absolute', bottom: 40, left: 0, right: 0}}>
+                                    <Pressable style={stile.slideup2.button} onPress={()=>{
+                                            visible()                           
+                                        }}>
+                                        <Text style={stile.slideup2.textbutton}>Prenota</Text>
+                                    </Pressable>
+                                </View>
+                            </View>
                         </View>
                     </View>
             </SlidingUpPanel>
@@ -127,6 +197,21 @@ export default function Home(){
 
 const st = StyleSheet.create({
     ios: {
+        prenotato: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+        },
+        prenotato2: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 10
+        },
         slideup1:{
             main:{
                 position: 'absolute',
@@ -172,7 +257,7 @@ const st = StyleSheet.create({
                 backgroundColor: 'white',
                 borderRadius: 40,
                 zIndex: 2,
-                padding: 20
+                padding: 20,
             },
             text: {
                 fontSize: 25,
@@ -186,6 +271,39 @@ const st = StyleSheet.create({
                 height: 100,
                 right: 60,
                 resizeMode: 'contain',
+            },
+            card: {
+                width: 200,
+                height: 80,
+                borderWidth: 1,
+                borderColor: 'black',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 10,
+                marginLeft: 10,
+                marginRight: 5
+            },
+            cardtext: {
+                fontSize: 20,
+                fontWeight: 600
+            },
+            button: {
+                paddingLeft: 50,
+                paddingRight: 50,
+                paddingTop: 20,
+                paddingBottom: 20,
+                backgroundColor: '#282931',
+                borderRadius: 10,
+            },
+            textbutton:{
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 600
+            },
+            textprezzo: {
+                fontSize: 25,
+                fontWeight: 'bold',
+                marginTop: 10
             }
         },
 
