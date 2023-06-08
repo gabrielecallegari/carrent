@@ -452,6 +452,256 @@ const st = StyleSheet.create({
     },
 
     android: {
+        prenotato: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+        },
+        prenotato2: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 10
+        },
+        slideup1:{
+            main:{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 450,
+                backgroundColor: '#282931',
+                borderRadius: 40,
+                zIndex: 1,
+                padding: 20
+            },
+            text:{
+                color: 'white',
+                fontSize: 28,
+                fontWeight: 'bold'
+            },
+            header:{
+                width: '100%',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+            },
+            image:{
+                width: 50,
+                height: 50,
+            },
+            text2:{
+                color: 'white',
+                fontSize: 18,
+                fontWeight: 500,
+                marginTop: 5
+            },
+        },
 
+        slideup2:{
+            main: {
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: 350,
+                backgroundColor: 'white',
+                borderRadius: 40,
+                zIndex: 2,
+                padding: 20,
+            },
+            text: {
+                fontSize: 25,
+                fontWeight: 'bold',
+                color: 'black'
+            },
+            image:{
+                position: 'absolute',
+                top: -50,
+                width: 200,
+                height: 100,
+                right: 60,
+                resizeMode: 'contain',
+            },
+            card: {
+                width: 200,
+                height: 80,
+                borderWidth: 1,
+                borderColor: 'black',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 10,
+                marginLeft: 10,
+                marginRight: 5
+            },
+            cardtext: {
+                fontSize: 20,
+                fontWeight: 600
+            },
+            button: {
+                paddingLeft: 50,
+                paddingRight: 50,
+                paddingTop: 20,
+                paddingBottom: 20,
+                backgroundColor: '#282931',
+                borderRadius: 10,
+            },
+            textbutton:{
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 600
+            },
+            textprezzo: {
+                fontSize: 25,
+                fontWeight: 'bold',
+                marginTop: 10
+            }
+        },
+
+        main:{
+            width: '100%',
+            height: '100%',
+            paddingLeft: 30,
+            paddingRight: 30
+        },
+
+        topCard: {
+            card: {
+                width: '100%',
+                backgroundColor: 'rgb(242, 242, 242)',
+                marginTop: 10,
+                borderRadius: 20,
+                padding: 10
+            },
+            image: {
+                width: '100%',
+                height: 150,
+                resizeMode: 'contain',
+            },
+            nearest: {
+                fontSize: 20,
+                fontWeight: '500'
+            },
+            modello:{
+                fontSize: 25,
+                fontWeight: 'bold'
+            },
+            footer: {
+                width: '100%',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 10,
+                alignItems: 'center'
+            },
+            dati:{
+                flexDirection: 'row',
+            }
+        },
+
+        centerCards: {
+            main: {
+                width: '100%', 
+                flexDirection: 'row', 
+                justifyContent: 'space-between',
+                marginTop: 20
+            },
+            card1: {
+                main: {
+                    width: '45%',
+                    height: 150,
+                    borderRadius: 10,
+                    alignItems: 'center',
+                    padding: 10,
+                    backgroundColor: 'rgb(242, 242, 242)',
+                },
+                image:{
+                    width: 100,
+                    height: 100
+                },
+                text: {
+                    fontSize: 25,
+                    fontWeight: 500
+                }
+            },
+
+            card2: {
+                main: {
+                    width: '45%',
+                    height: 150,
+                    borderRadius: 10,
+                    alignItems: 'center',
+                    backgroundColor: 'red'
+                },
+                image:{
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: 10
+                },
+                text: {
+                    fontSize: 25,
+                    fontWeight: 500
+                }
+            }
+        },
+        altreAuto: {
+            main:{
+                with: '100%',
+                height: 280,
+                backgroundColor: '#282931',
+                marginTop: 20,
+                marginBottom: 40,
+                borderRadius: 10,
+                padding: 10
+            },
+            header: {
+                width: '100%',
+                justifyContent: 'space-between',
+                flexDirection: 'row',
+                paddingLeft: 10,
+                paddingRight: 10,
+                paddingBottom: 10,
+            },
+            headerText: {
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 'bold'
+            },
+            map: {
+                main: {
+                    marginTop: 10,
+                },
+                top:{
+                    justifyContent: 'space-between',
+                    flexDirection: 'row',
+                    alignItems: 'center',
+                    padding: 0,
+                    paddingBottom: 10
+                },
+                title: {
+                    color: 'white',
+                    fontSize: 25,
+                    fontWeight: 'bold',
+                    width: 250
+                },
+                gas:{
+                    fontSize: 20,
+                    color: 'white',
+                    marginTop: 10,
+                },
+                image: {
+                    width: 50,
+                    height: 50
+                },
+                separator: {
+                    width: '100%',
+                    height: 1,
+                    backgroundColor: 'grey'
+                }
+            }
+        }
     }
 })
