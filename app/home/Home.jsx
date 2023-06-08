@@ -5,7 +5,7 @@ import Firstpage from '../firstpage/Firstpage'
 import data from "../database/database";
 import SlidingUpPanel from 'rn-sliding-up-panel';
 import Prenotato from "../Prenotato/Prenotato";
-import { useFocusEffect, useIsFocused } from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
 
 export default function Home({navigation}){
 
@@ -104,10 +104,10 @@ export default function Home({navigation}){
                 </Pressable>
 
                 <View style={stile.centerCards.main}>
-                    <Pressable style={stile.centerCards.card1.main}>
+                    <View style={stile.centerCards.card1.main} >
                         <Image source={require("../../assets/profile.png")} style={stile.centerCards.card1.image}/>
-                        <Text style={stile.centerCards.card1.text} >{window.user === false? "Profilo" : "Login"}</Text>
-                    </Pressable>
+                        <Text style={stile.centerCards.card1.text} >Gabriele</Text>
+                    </View>
 
                     <Pressable style={stile.centerCards.card2.main} onPress={()=> navigation.navigate("Map")}>
                         <Image source={require("../../assets/maps.jpg")} style={stile.centerCards.card2.image}/>
@@ -396,7 +396,7 @@ const st = StyleSheet.create({
         altreAuto: {
             main:{
                 with: '100%',
-                height: 350,
+                height: 330,
                 backgroundColor: '#282931',
                 marginTop: 20,
                 marginBottom: 40,
